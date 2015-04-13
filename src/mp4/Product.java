@@ -1,6 +1,6 @@
 package mp4;
 import java.util.Date;
-
+// random comment
 class Product {
 	private double amount;
 	private Date purchaseDate;
