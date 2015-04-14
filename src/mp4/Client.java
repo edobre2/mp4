@@ -1,7 +1,7 @@
 package mp4;
 
 class Client {
-
+    // test
 	private Inventory inventory;
 	private Projection projection;
 	
