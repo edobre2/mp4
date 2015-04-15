@@ -21,7 +21,11 @@ class ProductIterator implements Iterator {
 	}
 
 	public void removeElement() {
-		
+		position = 0;
+		while(products[position] != null) {
+			products[position] = products[position+1];
+		}
+		position = 0;
 	}
 
 	public void next(Object o) {

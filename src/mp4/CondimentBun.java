@@ -2,7 +2,7 @@ package mp4;
 
 class CondimentBun extends Condiment {
 
-	public CondimentBun(IObserver observerList) {
+	public CondimentBun(IObserver[] observerList) {
 		
 	}
 	
