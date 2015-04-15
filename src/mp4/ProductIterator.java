@@ -10,28 +10,21 @@ class ProductIterator implements Iterator {
 		position = 0;
 	}
 	
-	@Override
 	public boolean hasNext() {
-		// TODO Auto-generated method stub
-		return false;
+		if (products[position] == null)
+			return false;
+		return true;
 	}
 
-	@Override
 	public Object next() {
-		// TODO Auto-generated method stub
-		return null;
+		return products[position++];
 	}
 
-	@Override
 	public void removeElement() {
-		// TODO Auto-generated method stub
-
+		
 	}
 
-	@Override
 	public void next(Object o) {
-		// TODO Auto-generated method stub
-
+		products[position++] = (Product) o;
 	}
-
 }
