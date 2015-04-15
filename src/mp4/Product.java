@@ -16,7 +16,7 @@ class Product {
 	}
 	
 	public void SetAmount(double amt) {
-		
+		amount = amt;
 	}
 	
 	public String GetName() {
