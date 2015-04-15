@@ -11,6 +11,7 @@ class Client {
 		// ask user what they want to do
 		// list out options
 		// call function based on choice
+		// MEHHHH
 	}
 	
 	public void GetSalesFromPrevDay() {
