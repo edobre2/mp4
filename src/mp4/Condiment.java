@@ -4,7 +4,7 @@ abstract class Condiment {
 	private double amount;
 	private IObserver[] observerList;
 	private String name;
-	protected int shelfLife;
+	private int shelfLife;
 	
 	public abstract void NotifyObserver();
 	
