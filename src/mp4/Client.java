@@ -7,8 +7,6 @@ class Client {
 	//changes reflected
 
 	public static void main(String[] args) {
-		
-		System.out.println("test3");
 		// loop through:
 		// ask user what they want to do
 		// list out options

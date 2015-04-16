@@ -46,8 +46,8 @@ class BurgerStoreInventory implements Inventory, IObserver {
 		double amount = 0.0; // total amount of product in inventory
 		int count = 0; // number of items in shopping list
 		Iterator it;
-		// TODO: 
-		// check expiration dates, throw away expired product
+
+		CheckExpirationDates(dateNow);
 		
 		Product[] projectionList = projection.GetProducts();
 		Product[] shoppingList = new Product[100];
