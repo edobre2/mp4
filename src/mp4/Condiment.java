@@ -1,10 +1,9 @@
 package mp4;
 
 abstract class Condiment {
-	private double amount;
-	private IObserver[] observerList;
-	private String name;
-	private int shelfLife;
+	protected double amount;
+	protected IObserver[] observerList;
+	protected String name;
 	
 	public abstract void NotifyObserver();
 	
@@ -18,13 +17,5 @@ abstract class Condiment {
 	
 	public String Name() {
 		return name;
-	}
-	
-	public void setShelfLife(int days) {
-		shelfLife = days;
-	}
-	
-	public int setShelfLife() {
-		return shelfLife;
 	}
 }
