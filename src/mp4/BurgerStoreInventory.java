@@ -35,7 +35,7 @@ class BurgerStoreInventory implements Inventory, IObserver {
 			// print the name of the product, amount and expiration date
 			while(iterator.hasNext()) {
 				Product p = (Product) iterator.next();
-				System.out.printf("%s [%lf units] [expires: %s]\n", p.GetName(), 
+				System.out.printf("%s [%f units] [expires: %s]\n", p.GetName(), 
 						p.GetAmount(), p.GetExpirationDate().toString());
 			}
 		} // end for
@@ -101,17 +101,16 @@ class BurgerStoreInventory implements Inventory, IObserver {
 		Iterator it;
 		
 		// find the list containing this product
-		for(ProductList pList : productList) {
+		for(int i = 0; i < productList.length; i++) {
 			
 			// list not initialized, insert product here
-			if(pList == null) {
-				pList = new BurgerStorePList(newProduct.GetName());
-				it = pList.CreateIterator();
+			if(productList[i] == null) {
+				productList[i] = new BurgerStorePList(newProduct.GetName());
+				it = productList[i].CreateIterator();
 				it.next(newProduct);
 				return;
 			}
-			
-			it = pList.CreateIterator();
+			it = productList[i].CreateIterator();
 			// list is initialized, check if it actually contains something
 			if(!it.hasNext()) {
 				// list is empty, insert here
