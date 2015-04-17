@@ -14,8 +14,8 @@ class BurgerStoreInventory implements Inventory, IObserver {
 		productList = new ProductList[100];
 		
 		// initialize list to null
-		for(ProductList p : productList) {
-			p = null;
+		for(int i = 0; i < productList.length; i++) {
+			productList[i] = null;
 		}
 	} // end constructor
 	
@@ -53,33 +53,33 @@ class BurgerStoreInventory implements Inventory, IObserver {
 		Product[] shoppingList = new Product[100];
 		
 		// initialize shopping list to null
-		for(Product product : shoppingList)
-			product = null;
+		for(int i = 0; i < shoppingList.length; i++)
+			shoppingList[i] = null;
 		
 		// for every product in projection list, check the total amount
 		// of that product in inventory and take the difference
-		for(Product p : projectionList) {
+		for(int i = 0; i < projectionList.length; i++) {
 			// find out the total amount in inventory
-			for(ProductList pList : productList) {
+			for(int j = 0; j < productList.length; j++) {
 				// empty list
-				if (pList == null)
+				if (productList[j] == null)
 					continue;
 				// list of a different product
-				if( ((BurgerStorePList)pList).getProductName() != p.GetName())
+				if( ((BurgerStorePList)productList[j]).getProductName() != projectionList[i].GetName())
 					continue;
 				
-				it = pList.CreateIterator();
+				it = productList[j].CreateIterator();
 				while(it.hasNext()) {
 					Product invProduct = (Product) it.next();
 					amount += invProduct.GetAmount();
 				} // end while loop
 			}// end for loop
 			
-			double diff = p.GetAmount() - amount;
+			double diff = projectionList[i].GetAmount() - amount;
 			if (diff > 0) {
 				// positive difference new amount is projection - inventory;
-				p.SetAmount(diff);
-				shoppingList[count++] = p;
+				projectionList[i].SetAmount(diff);
+				shoppingList[count++] = projectionList[i];
 			}
 			// if diff is less than or equal to 0, don't add this product to 
 			// the shopping list, the inventory already has enough of it
@@ -139,21 +139,21 @@ class BurgerStoreInventory implements Inventory, IObserver {
 		Iterator it;
 		
 		// find the list for that product
-		for(ProductList pList : productList) {
+		for(int i = 0; i < productList.length; i++) {
 			// check for uninitialized list
-			if (pList == null)
+			if (productList[i] == null)
 				continue;
-			String productName = ((BurgerStorePList)pList).getProductName();
+			String productName = ((BurgerStorePList)productList[i]).getProductName();
 
 			if (productName == c.Name()) {
 				// this list contains products of the same type as condiment
-				it = pList.CreateIterator();
+				it = productList[i].CreateIterator();
 				
 				while(it.hasNext() && remainingAmount > 0) {
 					// get the first element in the list
 					Product p = (Product) it.next();
 					// reset iterator to point to the first element again
-					it = pList.CreateIterator();
+					it = productList[i].CreateIterator();
 					
 					double diff = p.GetAmount() - remainingAmount;
 					if ( diff > 0 ) {
@@ -179,11 +179,11 @@ class BurgerStoreInventory implements Inventory, IObserver {
 		Iterator it;
 		
 		// for each product list in array
-		for(ProductList pList : productList) {
+		for(int i = 0; i < productList.length; i++) {
 			// if empty continue
-			if(pList == null)
+			if(productList[i] == null)
 				continue;
-			it = pList.CreateIterator();
+			it = productList[i].CreateIterator();
 			
 			// for every item in pList
 			while(it.hasNext()) {
@@ -191,7 +191,7 @@ class BurgerStoreInventory implements Inventory, IObserver {
 				if( ((Product) it.next()).GetExpirationDate().after(now)) {
 					// discard and reset iterator to start of pList
 					it.removeElement();
-					it = pList.CreateIterator();
+					it = productList[i].CreateIterator();
 				} // end if
 			} // end while loop
 		} // end for loop
