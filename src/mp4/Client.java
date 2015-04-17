@@ -11,8 +11,8 @@ class Client {
 		projection = new Projection();
 		Product p = new Product("Beef Patty", new Date(), new Date(), 5.0);
 		inventory.AddProduct(p);
-		inventory.AddProduct(new Product("Bun", new Date(), new Date(), 20.0));
-		inventory.AddProduct(new Product("Bacon", new Date(), new Date(), 7.0));
+		//inventory.AddProduct(new Product("Bun", new Date(), new Date(), 20.0));
+		//inventory.AddProduct(new Product("Bacon", new Date(), new Date(), 7.0));
 		
 		inventory.ListInventory();
 		System.out.println("djshf");
