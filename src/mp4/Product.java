@@ -7,8 +7,11 @@ class Product {
 	private Date expirationDate;
 	private String name;
 	
-	public Product(String name, Date expDate, Date purchDate) {
-		
+	public Product(String n, Date e, Date p, double a) {
+		name = n;
+		expirationDate = e;
+		purchaseDate = p;
+		amount = a;
 	}
 	
 	public double GetAmount() {

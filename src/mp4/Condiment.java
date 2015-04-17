@@ -4,8 +4,8 @@ abstract class Condiment {
 	private double amount;
 	private IObserver[] observerList;
 	private String name;
+	private int shelfLife;
 	
-	public abstract void RegisterObserver();
 	public abstract void NotifyObserver();
 	
 	public double Amount() {
@@ -18,5 +18,13 @@ abstract class Condiment {
 	
 	public String Name() {
 		return name;
+	}
+	
+	public void setShelfLife(int days) {
+		shelfLife = days;
+	}
+	
+	public int setShelfLife() {
+		return shelfLife;
 	}
 }
