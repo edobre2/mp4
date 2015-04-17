@@ -7,13 +7,11 @@ public class BurgerStorePList implements ProductList {
 	private String productName;
 	
 	public BurgerStorePList(String name) {
-		
+		productName = name;
 	}
 	
-	@Override
 	public Iterator CreateIterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ProductIterator(products);
 	}
 
 	public int getCount() {
@@ -21,7 +19,7 @@ public class BurgerStorePList implements ProductList {
 	}
 	
 	public void setCount(int cnt) {
-		
+		count = cnt;
 	}
 	
 	public String getProductName() {
