@@ -1,12 +1,21 @@
 package mp4;
-
+import java.util.Date;
 class Client {
-	private Inventory inventory;
-	private Projection projection;
+	private static Inventory inventory;
+	private static Projection projection;
 
 	//changes reflected
 
 	public static void main(String[] args) {
+		inventory = new BurgerStoreInventory();
+		projection = new Projection();
+		Product p = new Product("Beef Patty", new Date(), new Date(), 5.0);
+		inventory.AddProduct(p);
+		//inventory.AddProduct(new Product("Bun", new Date(), new Date(), 20.0));
+		//inventory.AddProduct(new Product("Bacon", new Date(), new Date(), 7.0));
+		
+		inventory.ListInventory();
+		System.out.println("djshf");
 		// loop through:
 		// ask user what they want to do
 		// list out options
