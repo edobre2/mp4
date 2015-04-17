@@ -14,7 +14,7 @@ class CheeseburgerFactory extends BurgerFactory {
 		ingredientList[2] = new CondimentBeefPatty(observerList);
 
 	}
-	
+
 	public void createBurger(int num) {
 		for(Condiment c : ingredientList){//for each condiment c in the ingredient list
 			c.Amount(num);//set the amount of each ingredient
