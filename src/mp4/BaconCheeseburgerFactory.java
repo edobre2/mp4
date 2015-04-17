@@ -17,7 +17,6 @@ class BaconCheeseburgerFactory extends BurgerFactory {
 	}
 	public void createBurger(int num) {
 		for(int i = 0; i< ingredientList.length; i++){
-			ingredientList[i].RegisterObserver();//register each condiment as an observer
 			ingredientList[i].Amount(num);//set the amount of each ingredient
 			ingredientList[i].NotifyObserver();
 		}
