@@ -10,7 +10,6 @@ public class BurgerStorePList implements ProductList {
 		productName = name;
 	}
 	
-	@Override
 	public Iterator CreateIterator() {
 		return new ProductIterator(products);
 	}
