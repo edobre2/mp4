@@ -8,6 +8,9 @@ public class BurgerStorePList implements ProductList {
 	
 	public BurgerStorePList(String name) {
 		productName = name;
+		max_count = 100;
+		products = new Product[max_count];
+		count = 0;
 	}
 	
 	public Iterator CreateIterator() {
