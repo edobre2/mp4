@@ -3,18 +3,9 @@ package mp4;
 class CondimentBeefPatty extends Condiment {
 
 	public CondimentBeefPatty() {
+		observerList = new IObserver[20];
 		shelfLife = 3;
 		name = "Beef Patty";	
-	}
-	
-	
-	//if provided the observers at intialization
-	public CondimentBeefPatty(BurgerStoreInventory bs, Projection p) {
-		observerList = new IObserver[20];
-		observerList[0] = bs;
-		observerList[1] = p;
-		name = "Beef Patty";
-		
 	}
 
 	public void AddObserver(IObserver observer) {
