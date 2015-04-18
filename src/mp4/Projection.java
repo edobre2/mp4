@@ -7,6 +7,8 @@ class Projection implements IObserver {
 
 	public Projection() {
 		productList = new Product[100];
+		for(int i = 0; i < productList.length; i++)
+			productList[i] = null;
 		length = 0;
 	}
 
@@ -20,6 +22,15 @@ class Projection implements IObserver {
 	}
 
 	public void update(Condiment c) {
+		// all products are purchased on the same day here so
+		// if product already exists in projection, add condiment amount to it
+		for(int i=0; i < productList.length; i++) {
+			if(productList[i] != null && productList[i].GetName() == c.Name()) {
+				productList[i].SetAmount(productList[i].GetAmount() + c.Amount());
+				return;
+			}
+		}
+		
 		Date purchaseDate = new Date();
 		// 24*60*1000 = 1 day, multiply that by shelf life
 		long timeadj = 24*60*60*1000*c.shelfLife;

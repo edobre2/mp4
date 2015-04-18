@@ -59,6 +59,13 @@ class Client {
 	}
 
 	public static void GetSalesFromPrevDay() {
+		BaconCheeseburgerFactory bcbf = new BaconCheeseburgerFactory();
+		bcbf.createBurger(5, observerList);
+		CheeseburgerFactory cbf = new CheeseburgerFactory();
+		cbf.createBurger(7, observerList);
+		HamburgerFactory hbf = new HamburgerFactory();
+		hbf.createBurger(3, observerList);
+		/*
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Please enter the # of BaconCheeseBurgers sold yesterday:");
 		int num = sc.nextInt();
@@ -73,6 +80,7 @@ class Client {
 		HamburgerFactory hbf = new HamburgerFactory();
 		hbf.createBurger(num, observerList);
 		sc.close();
+		*/
 	}
 
 	public static void GetShoppingList() {
@@ -80,7 +88,8 @@ class Client {
 		Product[] p = inventory.GenerateShoppingList(projection, now);
 		System.out.printf("Shopping List: \n");
 		for(Product product : p ) {
-			System.out.printf("%s: %3.2\n", product.GetName(), product.GetAmount());
+			if (product != null)
+				System.out.printf("%s: %3.2f\n", product.GetName(), product.GetAmount());
 		}
 	}
 

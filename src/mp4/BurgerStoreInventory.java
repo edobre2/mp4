@@ -59,6 +59,10 @@ class BurgerStoreInventory implements Inventory, IObserver {
 		// for every product in projection list, check the total amount
 		// of that product in inventory and take the difference
 		for(int i = 0; i < projectionList.length; i++) {
+			if(projectionList[i] == null) {
+				// end of list
+				break;
+			}
 			// find out the total amount in inventory
 			for(int j = 0; j < productList.length; j++) {
 				// empty list
