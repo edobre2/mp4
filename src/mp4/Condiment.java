@@ -1,12 +1,12 @@
 package mp4;
 
-abstract class Condiment {
+abstract class Condiment implements Subject{
 	protected double amount;
 	protected IObserver[] observerList;
+	protected int observerCnt;
 	protected String name;
-	
-	public abstract void NotifyObserver();
-	
+	protected int shelfLife;
+		
 	public double Amount() {
 		return amount;
 	}

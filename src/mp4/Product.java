@@ -1,5 +1,6 @@
 package mp4;
 import java.util.Date;
+import java.util.Calendar;
 
 class Product {
 	private double amount;
@@ -9,9 +10,9 @@ class Product {
 	
 	public Product(String n, Date e, Date p, double a) {
 		name = n;
-		expirationDate = e;
 		purchaseDate = p;
-		amount = a;
+		expirationDate = e;
+		amount = a;		
 	}
 	
 	public double GetAmount() {

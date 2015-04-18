@@ -3,29 +3,29 @@ package mp4;
 class CondimentBun extends Condiment {
 
 	//if provided an observer list at intialization
-	public CondimentBun(IObserver[] oList) {
-		
-		observerList = oList;
+	public CondimentBun() {
+		observerList = new IObserver[20];
+		shelfLife = 2;
 		name = "Bun";
 		
 	}
 	
-	
-	//if provided the observers at intialization
-	public CondimentBun(BurgerStoreInventory bs, Projection p) {
-		
-		observerList[0] = bs;
-		observerList[1] = p;
-		name = "Bun";
-		
+	public void AddObserver(IObserver observer) {
+		observerList[observerCnt++] = observer;
 	}
-
+	
+	public void RemoveObserver(IObserver observer) {
+		for(int i = 0; i < observerCnt; i++) {
+			if (observerList[i] == observer) 
+				observerList[i] = null;
+		}
+	}
 	
 	//calls update in BurgerStoreInventory and Projection
-	public void NotifyObserver() {
-		
-		observerList[0].update(this);
-		observerList[1].update(this);
+	public void NotifyObservers() {		
+		for(IObserver observer: observerList) {
+			if(observer != null)
+				observer.update(this);
+		}
 	}
-
 }
