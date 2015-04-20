@@ -35,7 +35,7 @@ class BurgerStoreInventory implements Inventory, IObserver {
 			// print the name of the product, amount and expiration date
 			while(iterator.hasNext()) {
 				Product p = (Product) iterator.next();
-				System.out.printf("%s [%3.2f units] [expires: %s]\n", p.GetName(), 
+				System.out.printf("%10s [%6.2f units] [expires: %10s]\n", p.GetName(), 
 						p.GetAmount(), p.GetExpirationDate().toString());
 			}
 		} // end for

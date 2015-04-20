@@ -53,34 +53,26 @@ class Client {
 
 				System.out
 						.println("Options:\n <s> - input sales\n <l> - get shopping list\n <i>"
-								+ " - list inventory\n <a> - add to inventory\n <q> - quit program\n\n");
+								+ " - list inventory\n <a> - add to inventory\n <q> - quit program");
 			}
 		}
 	}
 
 	public static void GetSalesFromPrevDay() {
-		BaconCheeseburgerFactory bcbf = new BaconCheeseburgerFactory();
-		bcbf.createBurger(5, observerList);
-		CheeseburgerFactory cbf = new CheeseburgerFactory();
-		cbf.createBurger(7, observerList);
-		HamburgerFactory hbf = new HamburgerFactory();
-		hbf.createBurger(3, observerList);
-		/*
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Please enter the # of BaconCheeseBurgers sold yesterday:");
-		int num = sc.nextInt();
+		int num = Integer.parseInt(sc.nextLine());
 		BaconCheeseburgerFactory bcbf = new BaconCheeseburgerFactory();
 		bcbf.createBurger(num, observerList);
 		System.out.print("Please enter the # of CheeseBurgers sold yesterday:");
-		num = sc.nextInt();
+		num = Integer.parseInt(sc.nextLine());
 		CheeseburgerFactory cbf = new CheeseburgerFactory();
 		cbf.createBurger(num, observerList);
 		System.out.print("Please enter the # of Hamburger sold yesterday:");
-		num = sc.nextInt();
+		num = Integer.parseInt(sc.nextLine());
 		HamburgerFactory hbf = new HamburgerFactory();
 		hbf.createBurger(num, observerList);
-		sc.close();
-		*/
 	}
 
 	public static void GetShoppingList() {
@@ -89,7 +81,7 @@ class Client {
 		System.out.printf("Shopping List: \n");
 		for(Product product : p ) {
 			if (product != null)
-				System.out.printf("%s: %3.2f\n", product.GetName(), product.GetAmount());
+				System.out.printf("%10s: %7.2f\n", product.GetName(), product.GetAmount());
 		}
 	}
 
@@ -98,21 +90,18 @@ class Client {
 	}
 
 	public static void AddToInventory() throws ParseException {
-		Product p = new Product("Bun", new Date(), new Date(), 5.0);
-		inventory.AddProduct(p);
-		/*
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Do you want to add more products?(Y/N):");
-		char ch = sc.next().charAt(0);
+		char ch = sc.nextLine().charAt(0);
 		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		
 		if (ch == 'y' || ch == 'Y') {
 			do {
-				sc.nextLine();
 				System.out.print("Enter the name of the product:");
 				String name = sc.nextLine();
 				System.out.print("Enter the amount of the product:");
-				int amount = sc.nextInt();
+				int amount = Integer.parseInt(sc.nextLine());
 				System.out.print("Enter the purchase date of the product:(yyyy/MM/dd HH:mm:ss)");
 				String str = sc.nextLine();
 				Date purDate = format.parse(str);
@@ -122,10 +111,8 @@ class Client {
 				Product p = new Product(name, expDate, purDate, amount);
 				inventory.AddProduct(p);
 				System.out.print("Do you want to add more products?(Y/N):");
-				ch = sc.next().charAt(0);
+				ch = sc.nextLine().charAt(0);
 			} while (ch == 'y' || ch == 'Y');
 		}
-		sc.close();
-		*/
 	}
 }
