@@ -36,6 +36,7 @@ class ProductIterator implements Iterator {
 		position = 0;
 		while(products[position] != null) {
 			products[position] = products[position+1];
+			position++;
 		}
 		position = 0;
 	}

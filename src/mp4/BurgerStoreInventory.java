@@ -28,14 +28,13 @@ class BurgerStoreInventory implements Inventory, IObserver {
 			// check if list is initialized
 			if(pList == null)
 				continue;
-			
 			// create an iterator to go through the product list
 			Iterator iterator = pList.CreateIterator();
 			
 			// print the name of the product, amount and expiration date
 			while(iterator.hasNext()) {
 				Product p = (Product) iterator.next();
-				System.out.printf("%10s [%6.2f units] [expires: %10s]\n", p.GetName(), 
+				System.out.printf("%10s [%7.2f units] [expires: %10s]\n", p.GetName(), 
 						p.GetAmount(), p.GetExpirationDate().toString());
 			}
 		} // end for
@@ -125,12 +124,13 @@ class BurgerStoreInventory implements Inventory, IObserver {
 			// list is initialized and contains products
 			// try to match the product name
 			Product p = (Product) it.next();
-			if(p.GetName() == newProduct.GetName()){
+			if(newProduct.GetName().equals(((BurgerStorePList) productList[i]).getProductName())) {
 				// names match, insert product at the end of list
 				while(it.hasNext()) {
 					it.next();
 				}
 				it.next(newProduct);
+				return;
 			}
 			// continue to next list
 		} // end for loop
@@ -166,7 +166,7 @@ class BurgerStoreInventory implements Inventory, IObserver {
 						it.next(p);
 						return;
 					}
-					if ( diff >= 0) {
+					if ( diff <= 0) {
 						// negative or 0 difference 
 						remainingAmount = -diff;
 						it.removeElement();
@@ -192,7 +192,7 @@ class BurgerStoreInventory implements Inventory, IObserver {
 			// for every item in pList
 			while(it.hasNext()) {
 				// if expired
-				if( ((Product) it.next()).GetExpirationDate().after(now)) {
+				if( ((Product) it.next()).GetExpirationDate().before(now)) {
 					// discard and reset iterator to start of pList
 					it.removeElement();
 					it = productList[i].CreateIterator();

@@ -42,8 +42,6 @@ class Client {
 
 				if (ch == 's') // input sales
 					GetSalesFromPrevDay();
-				else if (ch == 'l') // get shopping list
-					GetShoppingList();
 				else if (ch == 'i') // list inventory
 					ListInventory();
 				else if (ch == 'a') // display list
@@ -52,7 +50,7 @@ class Client {
 					System.exit(0);
 
 				System.out
-						.println("Options:\n <s> - input sales\n <l> - get shopping list\n <i>"
+						.println("Options:\n <s> - input sales\n <i>"
 								+ " - list inventory\n <a> - add to inventory\n <q> - quit program");
 			}
 		}
@@ -73,6 +71,12 @@ class Client {
 		num = Integer.parseInt(sc.nextLine());
 		HamburgerFactory hbf = new HamburgerFactory();
 		hbf.createBurger(num, observerList);
+		System.out.print("Generate shopping list? Y/N");
+		char c = sc.nextLine().charAt(0);
+		if (c == 'Y' || c == 'y') 
+			GetShoppingList();
+		projection.reset();
+		//sc.close();
 	}
 
 	public static void GetShoppingList() {

@@ -38,4 +38,12 @@ class Projection implements IObserver {
 	    Product p = new Product(c.Name(), expirationDate, purchaseDate, c.Amount());
 	    addProduct(p);
 	}
+	
+	public void reset() {
+		productList = new Product[100];
+		length = 0;
+		for(int i = 0; i < 100; i++) {
+			productList[i] = null;
+		}
+	}
 }
